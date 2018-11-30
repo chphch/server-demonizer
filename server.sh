@@ -9,7 +9,7 @@ case $1 in
   run)
     (eval "$runserver_command &" && echo $! > $pidfilename)
     ;;
-  stop)
+  terminate)
     # Kill the server with pid
     kill -9 $(cat pid)
     # Kill all child processes
@@ -18,5 +18,5 @@ case $1 in
     ;;
   *)
     echo 'server.sh doesn'\''t support the sub-command '\"$1\"
-    echo 'usage: "sh server.sh run" or "sh .server stop'
+    echo 'usage: "sh server.sh run" or "sh .server terminate'
 esac
